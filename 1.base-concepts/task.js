@@ -1,19 +1,18 @@
 "use strict";
 function solveEquation(a, b, c) {
   let arr = [];
-  let d = Math.pow(b, 2)-4*a*c;
+  let d = Math.pow(b, 2)- 4 * a * c;
 
   if (d == 0) {
-    arr[0] = (-b/(2*a));
+    arr[0] = (-b / (2 * a));
   }
 
   if (d > 0) {
-    arr[0] = (-b + Math.sqrt(d) )/(2*a);
-    arr[1] = (-b - Math.sqrt(d) )/(2*a);
+    arr[0] = (-b + Math.sqrt(d) )/(2 * a);
+    arr[1] = (-b - Math.sqrt(d) )/(2 * a);
   }
   
-  return arr;
-  
+  return arr; 
 }
 
 function calculateTotalMortgage(percent, contribution, amount, countMonth) {
@@ -37,15 +36,12 @@ function calculateTotalMortgage(percent, contribution, amount, countMonth) {
     return false;
   }
 
-  
   let settlementAmount  = amount - contribution;
   let payment = calculatePayment(settlementAmount, countMonth, percent);
   let resultSum = payment * countMonth;
 
   return +resultSum.toFixed(2);
-  
 }
-
 
 function calculatePayment(sum, month, percent) {
   let index = percent / 12 / 100;                            
@@ -56,8 +52,6 @@ function calculatePayment(sum, month, percent) {
   return payment;
 }
 
-
-
 function getMonthDifference(date) {
 let today = new Date();
 
@@ -67,11 +61,9 @@ let diff = (date.getDate() - today.getDate()) / 30 +
 return Math.trunc(diff);
 }
 
-
-
-let percentInput = +prompt("Введите процент: ");
-let contributionInput = +prompt("Введите сумму первоначального взноса: ");
-let amountInput = +prompt("Введите сумму кредита: ");
+let percentInput = +prompt('Введите процент: ');
+let contributionInput = +prompt('Введите сумму первоначального взноса: ');
+let amountInput = +prompt('Введите сумму кредита: ');
 let dateInput = new Date (prompt ('Введите дату окончания кредита в формате YYYY-MM-DD: ',''));
 let myDate = getMonthDifference(dateInput);
  console.log(calculateTotalMortgage(percentInput, contributionInput, amountInput, myDate));
