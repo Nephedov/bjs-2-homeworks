@@ -115,7 +115,7 @@ class Student {
     }
 
     getAverageBySubject(subject) {
-        if(!this.marks[subject]) {
+        if(!this.marks.hasOwnProperty(subject)) {
             return 0;
         }
         return this.marks[subject].reduce((averageBySubject, element, index, arrayOfSubjectsMarks) => averageBySubject + element / arrayOfSubjectsMarks.length, 0);
