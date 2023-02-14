@@ -101,17 +101,17 @@ myLibrary.addBook(detective);
 class Student {
     constructor(name) {
     this.name = name,
-    this.marks = [];
+    this.marks = {};
     }
 
     addMark(mark, subject) {
-        if(mark < 2 && mark > 5) {
+        if(mark < 2 || mark > 5) {
             return;
         }
-        if(!this.marks[subject]) {
+        if(!this.marks.hasOwnProperty(subject)) {
             this.marks[subject] = [];
         }
-        this.marks[subject].push(mark); 
+        this.marks[subject].push(mark);
     }
 
     getAverageBySubject(subject) {
